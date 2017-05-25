@@ -1,0 +1,43 @@
+<h1>Edit a recipe</h1>
+
+<div class="">
+  <div class="">
+    <div class="">
+
+      <h1>Edit Recipe</h1>
+      <form name= "recipesEdit.recipeForm" ng-submit="recipesEdit.update()">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" ng-model="recipesEdit.recipe.name">
+        </div>
+
+        <div>
+          <label for="description">Description</label>
+          <input type="text" id="description" name="description" ng-model="recipesEdit.recipe.description">
+        </div>
+
+        <div>
+          <label for="base64">Image</label>
+          <input type="file" base64 name="base64" id="base64" ng-model="recipesEdit.recipe.base64">
+        </div>
+
+        <div>
+          <label for="github">Github link</label>
+          <input type="text" name="github" id="github" ng-model="recipesEdit.recipe.github">
+        </div>
+
+        <div>
+          <label for="link">Link</label>
+          <input type="text" name="link" id="link" ng-model="recipesEdit.recipe.link">
+        </div>
+
+        <div>
+          <label for="createdAt">Date added</label>
+          <input type="date" id="createdAt" name="createdAt" ng-model="recipesEdit.recipe.createdAt">
+        </div>
+
+          <button>Update Recipe</button>
+      </form>
+    </div>
+  </div>
+</div>

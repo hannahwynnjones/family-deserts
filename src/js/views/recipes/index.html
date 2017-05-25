@@ -1,0 +1,33 @@
+<div class="box">
+
+<h1>Recipes</h1>
+
+<div class="blog-box-one">
+
+  <ul class="row">
+    <li ng-repeat="recipe in recipesIndex.all | orderBy:'$index':true" class="col-md-6 col-lg-4 blog-box">
+      <div class="blog">
+        <h2>{{ recipe.name }}</h2>
+        <div class="blog-img">
+          <a ui-sref="recipesShow({id: recipe.id})"><img ng-src="{{ recipe.imageSRC }}" alt="{{ recipe.name }}"></a>
+        </div>
+        <a href="{{ recipe.github }}" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+        <a href="{{ recipe.link }}" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i></a>
+      </div>
+    </li>
+  </ul>
+</div>
+</div>
+
+<!-- <div uib-carousel active="recipesIndex.active" interval="recipesIndex.myInterval" no-wrap="recipesIndex.noWrapSlides">
+  <div uib-slide ng-repeat="recipe in recipesIndex.all" index="$index">
+    <img ng-src="{{ recipe.imageSRC }}" style="margin:auto;">
+    <div class="carousel-caption">
+      <h4>{{ recipe.name }}</h4>
+      <p><strong>{{ recipe.description }}</strong></p>
+      <button ng-click="recipesIndex.open({ recipe })">Viewid</button>
+      <button ng-click="recipesIndex.open()">View</button>
+
+    </div>
+  </div>
+</div> -->

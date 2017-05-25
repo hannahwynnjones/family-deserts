@@ -1,0 +1,45 @@
+<div class="box">
+  <div class="box-mid">
+    <div class="box-sm">
+
+      <h1>New Recipe</h1>
+      <form name= "recipesNew.recipeForm" ng-submit="recipesNew.create()">
+        <div class="auth-input">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" ng-model="recipesNew.recipe.name">
+        </div>
+
+        <div class="auth-input">
+          <label for="description">Description</label>
+          <!-- <input type="text" id="description" name="description" ng-model="recipesNew.recipe.description"> -->
+          <textarea name="description" ng-model="recipesNew.recipe.description" rows="10"></textarea>
+
+        </div>
+
+        <div class="auth-input">
+          <label for="base64">Image</label>
+          <input type="file" base64 name="base64" id="base64" ng-model="recipesNew.recipe.base64">
+        </div>
+
+        <div class="auth-input">
+          <label for="github">Link to github</label>
+          <input type="text" name="github" id="github" ng-model="recipesNew.recipe.github">
+        </div>
+
+        <div class="auth-input">
+          <label for="link">Link to recipe</label>
+          <input type="text" name="link" id="link" ng-model="recipesNew.recipe.link">
+        </div>
+
+        <div>
+          <label for="createdAt">Date added</label>
+          <input type="date" id="createdAt" name="createdAt" ng-model="recipesNew.recipe.createdAt">
+        </div>
+
+          <button>Create Recipe</button>
+      </form>
+    </div>
+  </div>
+  <div class="extra-height"></div>
+
+</div>

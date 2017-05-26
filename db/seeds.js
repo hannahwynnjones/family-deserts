@@ -33,7 +33,11 @@ User
         'pastry',
         'pie'
       ],
-      steps: '1) make apple pie 2) eat apple pie',
+      steps: [
+        'make apples sauce',
+        'make pastry',
+        'cook'
+      ],
       time: '60 minutes',
       difficulty: 2,
       image: 'https://images-gmi-pmc.edge-generalmills.com/3efa9ab7-0db5-4220-a6f8-2d4ea0f8fb72.jpg'
@@ -46,7 +50,11 @@ User
         'pastry',
         'pie'
       ],
-      steps: '1) make cherry pie 2) eat cherry pie',
+      steps: [
+        'make apples sauce',
+        'make pastry',
+        'cook'
+      ],
       time: '60 minutes',
       difficulty: 2,
       image: 'https://images-gmi-pmc.edge-generalmills.com/3efa9ab7-0db5-4220-a6f8-2d4ea0f8fb72.jpg'
@@ -59,7 +67,11 @@ User
         'pastry',
         'pie'
       ],
-      steps: '1) make apple pie 2) eat apple pie',
+      steps: [
+        'make apples sauce',
+        'make pastry',
+        'cook'
+      ],
       time: '60 minutes',
       difficulty: 2,
       image: 'https://images-gmi-pmc.edge-generalmills.com/3efa9ab7-0db5-4220-a6f8-2d4ea0f8fb72.jpg'
@@ -72,7 +84,11 @@ User
         'pastry',
         'pie'
       ],
-      steps: '1) make apple pie 2) eat apple pie',
+      steps: [
+        'make apples sauce',
+        'make pastry',
+        'cook'
+      ],
       time: '60 minutes',
       difficulty: 2,
       image: 'https://images-gmi-pmc.edge-generalmills.com/3efa9ab7-0db5-4220-a6f8-2d4ea0f8fb72.jpg'
@@ -85,7 +101,11 @@ User
         'pastry',
         'pie'
       ],
-      steps: '1) make apple pie 2) eat apple pie',
+      steps: [
+        'make apples sauce',
+        'make pastry',
+        'cook'
+      ],
       time: '60 minutes',
       difficulty: 2,
       image: 'https://images-gmi-pmc.edge-generalmills.com/3efa9ab7-0db5-4220-a6f8-2d4ea0f8fb72.jpg'
@@ -98,7 +118,11 @@ User
         'pastry',
         'pie'
       ],
-      steps: '1) make apple pie 2) eat apple pie',
+      steps: [
+        'make apples sauce',
+        'make pastry',
+        'cook'
+      ],
       time: '60 minutes',
       difficulty: 2,
       image: 'https://images-gmi-pmc.edge-generalmills.com/3efa9ab7-0db5-4220-a6f8-2d4ea0f8fb72.jpg'

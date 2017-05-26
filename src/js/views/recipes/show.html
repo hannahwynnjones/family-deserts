@@ -1,52 +1,25 @@
-<div class="box">
-  <div class="show-box">
-    <div class="proj-show-box">
-
-    <h1>{{ recipesShow.recipe.name }}</h1>
-
-    <div class="container">
-      <div class="container2">
-
-        <!-- <div class="left">
-          <img ng-src="{{ recipesShow.recipe.imageSRC }}" alt="{{ recipesShow.recipe.name }}">
-        </div>  -->
-
-        <div class="right">
-          <a href="{{ recipesShow.recipe.github }}" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-          <a href="{{ recipesShow.recipe.link }}" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i></a>
-
-          <div class="proj-show-div">
-
-            <zero-md text="{{recipesShow.recipe.description}}">
-              <div class="md-html markdown-div"></div>
-            </zero-md>
-
-            <div class="date">
-              {{ recipesShow.recipe.createdAt }}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <button ng-if="main.isAuthenticated()" ng-click="recipesShow.delete()" class="button">Delete</button>
-    <!-- <button ng-if="main.isAuthenticated()" class="" ui-sref="recipesEdit({ id: recipesShow.recipe.id})">Edit Item</button> -->
-
-    <button><a ui-sref="recipesIndex">Back to all recipes</a></button>
-
-  </div>
-</div>
-</div>
-<!--
 <div class="">
-  <a ng-if="main.isAuthenticated() && recipesShow.recipe.createdBy.id === main.profilePageId" class="" ui-sref="recipesEdit({ id: recipesShow.recipe.id})">Edit Item</a>
-  <a ng-if="main.isAuthenticated() && recipesShow.recipe.createdBy.id === main.profilePageId" class="" ng-click="recipesShow.delete()">Delete Item</a>
+  <h2>{{ recipe.name }}</h2>
+  <h3>{{ recipe.description }}</h3>
+
+  <h3>Ingredients:</h3>
+
+  <ul>
+    <li ng-repeat="ingredient in recipe.ingredients">
+      <span >{{ ingredient }} </span>
+    </li>
+  </ul>
+
+  <h3>Steps:</h3>
+
+  <ol>
+    <li ng-repeat="step in recipe.steps">
+      <span >{{ step }} </span>
+    </li>
+  </ol>
+
+  <h2>{{ recipe.time }}</h2>
+  <h2>{{ recipe.difficulty }}</h2>
+  <h2>{{ recipe.createdBy.username }}</h2>
+  <h2>{{ recipe.createdAt }}</h2>
 </div>
-
-<button class=" " ui-sref="recipesEdit({id: recipesShow.recipe.id})" ng-if="main.isAuthenticated() && recipesShow.currentUser.id === recipesShow.recipe.user.id">Edit</button>
-<button class=" " ng-click="recipesShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === recipesShow.recipe.user.id">Delete</button>
-
-
-<h4>without auth</h4>
-  <a ui-sref="recipesEdit({ id: recipesShow.recipe.id})">Edit Item</a>
-<button class=" " ng-click="recipesShow.delete()" >Delete</button> -->

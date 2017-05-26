@@ -7,32 +7,30 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $locationProvider.html5Mode(true);
 
-//state for messages
-
   $stateProvider
   .state('home', {
     url: '/',
     templateUrl: 'js/views/home.html'
   })
   .state('recipesIndex', {
-    url: '/index',
+    url: '/recipes',
     templateUrl: 'js/views/recipes/index.html',
-    controller: 'recipesIndexCtrl as index'
+    controller: 'recipesIndexCtrl as recipesIndex'
   })
   .state('recipesNew', {
-    url: '/new',
+    url: 'recipes/new',
     templateUrl: 'js/views/recipes/new.html',
     controller: 'recipesNewCtrl as recipesNew'
   })
   .state('recipesShow', {
-    url: '/show/:id',
+    url: '/recipes/:id',
     templateUrl: 'js/views/recipes/show.html',
-    controller: 'recipeShowCtrl as show'
+    controller: 'recipesShowCtrl as recipesShow'
   })
-  .state('recipeEdit', {
-    url: '/show/:id/edit',
+  .state('recipesEdit', {
+    url: '/recipes/:id/edit',
     templateUrl: 'js/views/recipes/edit.html',
-    controller: 'recipeEditCtrl as edit'
+    controller: 'recipesEditCtrl as recipesEdit'
   })
   .state('login', {
     url: '/login',

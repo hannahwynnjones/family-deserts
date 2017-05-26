@@ -1,9 +1,9 @@
 angular
   .module('family-deserts')
-  .controller('recipeEditCtrl', recipeEditCtrl);
+  .controller('recipesEditCtrl', recipesEditCtrl);
 
-recipeEditCtrl.$inject = ['Recipe', '$stateParams', '$state'];
-function recipeEditCtrl(Recipe, $stateParams, $state) {
+recipesEditCtrl.$inject = ['Recipe', '$stateParams', '$state'];
+function recipesEditCtrl(Recipe, $stateParams, $state) {
   const vm = this;
 
   vm.recipe = Recipe.get($stateParams);

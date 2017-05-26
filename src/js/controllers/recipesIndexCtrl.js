@@ -1,16 +1,17 @@
 angular
   .module('family-deserts')
-  .controller( 'recipieIndexCtrl', recipieIndexCtrl);
+  .controller( 'recipesIndexCtrl', recipesIndexCtrl);
 
-recipieIndexCtrl.$inject = ['Recipe','User', 'filterFilter', 'orderByFilter', '$scope', '$rootScope'];
-function recipieIndexCtrl(Recipe, User, filterFilter, orderByFilter, $scope, $rootScope) {
+recipesIndexCtrl.$inject = ['Recipe','User', 'filterFilter', 'orderByFilter', '$scope', '$rootScope'];
+function recipesIndexCtrl(Recipe, User, filterFilter, orderByFilter, $scope, $rootScope) {
   const vm = this;
-  vm.all = Recipe.query();
+  // vm.user = User.query();
+  vm.all = Recipe.get();
 
 
   //
-  // Recipe.query().$promise.then((recipies) => {
-  //   vm.all = recipies;
+  // Recipe.query().$promise.then((recipes) => {
+  //   vm.all = recipes;
   //   filterRecipes();
   // });
   //
@@ -29,4 +30,4 @@ function recipieIndexCtrl(Recipe, User, filterFilter, orderByFilter, $scope, $ro
   // ],filterRecipes);
 
 }
-// Recipe is injected from our Factory and makeing a GET request from the API api/recipie to find all the recipies
+// Recipe is injected from our Factory and makeing a GET request from the API api/recipe to find all the recipes

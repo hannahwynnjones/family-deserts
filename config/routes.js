@@ -1,9 +1,11 @@
 const router = require('express').Router();
+const recipeController = require('../controllers/recipe');
+const userController = require('../controllers/user');
 const auth = require('../controllers/auth');
+const oauth = require('../controllers/oauth');
 const secureRoute = require('../lib/secureRoute');
 const imageUpload = require('../lib/imageUpload');
-const userController = require('../controllers/user');
-const recipeController = require('../controllers/recipe');
+
 
 router.get('/', (req, res) => res.render('statics/index'));
 
@@ -15,11 +17,11 @@ router.route('/users/:id')
   .put(imageUpload, userController.update)
   .delete(secureRoute,userController.delete);
 
-router.route('/recipe')
+router.route('/recipes')
   .get(recipeController.index)
   .post(secureRoute, imageUpload, recipeController.create);
 
-router.route('/recipe/:id')
+router.route('/recipes/:id')
   .get(recipeController.show)
   .put(imageUpload, recipeController.update)
   .delete(secureRoute,recipeController.delete);
@@ -28,10 +30,13 @@ router.route('/profile')
   .get(secureRoute, userController.profile);
 
 router.route('/register')
-  .post(auth.register);
+  .post(imageUpload, auth.register);
 
 router.route('/login')
   .post(auth.login);
+
+router.route('/oauth/facebook')
+.post(oauth.facebook);
 
 router.all('*'), (req, res) => res.notFound();
 

@@ -4,8 +4,8 @@ const s3 = require('../lib/s3');
 const itemSchema = new mongoose.Schema({
   name: {type: String, required: true},
   description: {type: String},
-  ingredients: [{ name: String }],
-  steps: {type: String},
+  ingredients: [{ type: String}],
+  steps: [{type: String}],
   time: {type: String, required: true},
   difficulty: {type: Number, required: true},
   image: {type: String},

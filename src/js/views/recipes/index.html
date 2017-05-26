@@ -1,33 +1,33 @@
-<div class="box">
-
 <h1>Recipes</h1>
-
-<div class="blog-box-one">
-
   <ul class="row">
-    <li ng-repeat="recipe in recipesIndex.all | orderBy:'$index':true" class="col-md-6 col-lg-4 blog-box">
-      <div class="blog">
-        <h2>{{ recipe.name }}</h2>
+    <li ng-repeat="recipe in recipesIndex.all | orderBy: createdAt" class="">
+      <div class="">
         <div class="blog-img">
-          <a ui-sref="recipesShow({id: recipe.id})"><img ng-src="{{ recipe.imageSRC }}" alt="{{ recipe.name }}"></a>
+          <a ui-sref="recipesShow({id: recipe.id})"><img ng-src="{{ recipe.image }}" alt="{{ recipe.name }}"></a>
         </div>
-        <a href="{{ recipe.github }}" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-        <a href="{{ recipe.link }}" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i></a>
+        <h2>{{ recipe.name }}</h2>
+        <h3>{{ recipe.description }}</h3>
+
+        <h3>Ingredients:</h3>
+
+        <ul>
+          <li ng-repeat="ingredient in recipe.ingredients">
+            <span >{{ ingredient }} </span>
+          </li>
+        </ul>
+
+        <h3>Steps:</h3>
+
+        <ol>
+          <li ng-repeat="step in recipe.steps">
+            <span >{{ step }} </span>
+          </li>
+        </ol>
+
+        <h2>{{ recipe.time }}</h2>
+        <h2>{{ recipe.difficulty }}</h2>
+        <h2>{{ recipe.createdBy.username }}</h2>
+        <h2>{{ recipe.createdAt }}</h2>
       </div>
     </li>
   </ul>
-</div>
-</div>
-
-<!-- <div uib-carousel active="recipesIndex.active" interval="recipesIndex.myInterval" no-wrap="recipesIndex.noWrapSlides">
-  <div uib-slide ng-repeat="recipe in recipesIndex.all" index="$index">
-    <img ng-src="{{ recipe.imageSRC }}" style="margin:auto;">
-    <div class="carousel-caption">
-      <h4>{{ recipe.name }}</h4>
-      <p><strong>{{ recipe.description }}</strong></p>
-      <button ng-click="recipesIndex.open({ recipe })">Viewid</button>
-      <button ng-click="recipesIndex.open()">View</button>
-
-    </div>
-  </div>
-</div> -->

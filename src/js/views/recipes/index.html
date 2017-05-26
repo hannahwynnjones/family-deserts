@@ -1,33 +1,33 @@
-<h1>Recipes</h1>
-  <ul class="row">
-    <li ng-repeat="recipe in recipesIndex.all | orderBy: createdAt" class="">
-      <div class="">
-        <div class="">
-          <a ui-sref="recipesShow({id: recipe.id})"><img ng-src="{{ recipe.image }}" alt="{{ recipe.name }}"></a>
-        </div>
-        <h2>{{ recipe.name }}</h2>
-        <h3>{{ recipe.description }}</h3>
+<div class="">
+  <h1>Recipes</h1>
+    <div class="">
+      <ul>
+        <li ng-repeat="recipe in recipesIndex.all | orderBy: createdAt" class="">
+              <a ui-sref="recipesShow({id: recipe.id})"><img ng-src="{{ recipe.image }}" alt="{{ recipe.name }}"></a>
+            <h2>{{ recipe.name }}</h2>
+            <h3>{{ recipe.description }}</h3>
 
-        <h3>Ingredients:</h3>
+            <h3>Ingredients:</h3>
 
-        <ul>
-          <li ng-repeat="ingredient in recipe.ingredients">
-            <span >{{ ingredient }} </span>
-          </li>
-        </ul>
+            <ul>
+              <li ng-repeat="ingredient in recipe.ingredients">
+                <span >{{ ingredient }} </span>
+              </li>
+            </ul>
 
-        <h3>Steps:</h3>
+            <h3>Steps:</h3>
 
-        <ol>
-          <li ng-repeat="step in recipe.steps">
-            <span >{{ step }} </span>
-          </li>
-        </ol>
+            <ol>
+              <li ng-repeat="step in recipe.steps">
+                <span >{{ step }} </span>
+              </li>
+            </ol>
 
-        <h2>{{ recipe.time }}</h2>
-        <h2>{{ recipe.difficulty }}</h2>
-        <h2>{{ recipe.createdBy.username }}</h2>
-        <h2>{{ recipe.createdAt }}</h2>
-      </div>
-    </li>
-  </ul>
+            <h2>{{ recipe.time }}</h2>
+            <h2>{{ recipe.difficulty }}</h2>
+            <h2>{{ recipe.createdBy.username }}</h2>
+            <h2>{{ recipe.createdAt }}</h2>
+        </li>
+      </ul>
+    </div>
+</div>

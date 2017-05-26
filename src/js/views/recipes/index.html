@@ -2,7 +2,7 @@
   <ul class="row">
     <li ng-repeat="recipe in recipesIndex.all | orderBy: createdAt" class="">
       <div class="">
-        <div class="blog-img">
+        <div class="">
           <a ui-sref="recipesShow({id: recipe.id})"><img ng-src="{{ recipe.image }}" alt="{{ recipe.name }}"></a>
         </div>
         <h2>{{ recipe.name }}</h2>

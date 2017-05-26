@@ -5,6 +5,7 @@ angular
 AuthCtrl.$inject = ['$auth', '$state'];
 function AuthCtrl($auth, $state) {
   const vm = this;
+  vm.user = {};
 
   function register() {
     $auth.signup(vm.user)
@@ -19,10 +20,21 @@ function AuthCtrl($auth, $state) {
 
   vm.register = register;
 
-  function login() {
-    $auth.login(vm.credentials)
-      .then(() => $state.go('blogsIndex'));
+  function submit() {
+    if(vm.loginForm.$valid){
+      $auth.login(vm.credentials)
+      .then(() => {
+        if($auth.getPayload()) return $state.go('itemsIndex');
+        $state.go('login');
+      });
+    }
   }
 
-  vm.login = login;
+  function authenticate(provider) {
+    $auth.authenticate(provider)
+      .then(() => $state.go('itemsIndex'));
+  }
+
+  vm.authenticate = authenticate;
+  vm.submit = submit;
 }

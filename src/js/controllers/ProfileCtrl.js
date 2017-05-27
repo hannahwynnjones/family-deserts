@@ -4,17 +4,17 @@ angular
   .controller('ProfileCtrl', ProfileCtrl)
   .controller('EditCtrl', EditCtrl);
 
-ProfileCtrl.$inject = ['User','$stateParams', '$http', '$state', '$auth', 'Request', 'Item'];
-function ProfileCtrl(User, $stateParams, $http, $state, $auth, Request, Item){
+ProfileCtrl.$inject = ['User','$stateParams', '$http', '$state', '$auth', 'Request', 'Recipe'];
+function ProfileCtrl(User, $stateParams, $http, $state, $auth, Request, Recipe){
   const vm = this;
 
-  function getUsersItems(){
-    Item.query()
+  function getUsersRecipes(){
+    Recipe.query()
     .$promise
-    .then((items)=>{
-      items.forEach((item)=>{
-        if(item.createdBy.id === vm.user.id){
-          vm.allUserItems.push(item);
+    .then((recipes)=>{
+      recipes.forEach((recipe)=>{
+        if(recipe.createdBy.id === vm.user.id){
+          vm.allUserRecipes.push(recipe);
         }
       });
     });
@@ -30,7 +30,7 @@ function ProfileCtrl(User, $stateParams, $http, $state, $auth, Request, Item){
       vm.user.imageSRC = vm.user.image;
     }
     if(vm.user.facebookId) vm.user.imageSRC = vm.user.image;
-    getUsersItems();
+    getUsersRecipes();
   }); // vm.user is the current user's userpage rendering
 
 
@@ -45,8 +45,8 @@ function ProfileCtrl(User, $stateParams, $http, $state, $auth, Request, Item){
       }
     });
 
-    vm.requested.forEach((request)=>{// checks if the request item's owner is the same as the user rendering and makes sure the requester is not the same as the actual user
-      if(request.item[0].createdBy === vm.user.id && request.requester[0].id !== vm.user.id && request.accepted === false){
+    vm.requested.forEach((request)=>{// checks if the request recipe's owner is the same as the user rendering and makes sure the requester is not the same as the actual user
+      if(request.recipe[0].createdBy === vm.user.id && request.requester[0].id !== vm.user.id && request.accepted === false){
         vm.incomingRequests.push(request);
       //  if the first block passes it checks if the boolean accepted and determines if it's your request who got accepted or if you accepted someone elses
       }else if(request.accepted === true && vm.user.id !== request.requester[0].id){
@@ -65,7 +65,7 @@ function ProfileCtrl(User, $stateParams, $http, $state, $auth, Request, Item){
     function acceptRequest(request){
       request.accepted = true;
       request.requester = request.requester[0].id;
-      request.item = request.item[0].id;
+      request.recipe = request.recipe[0].id;
       $http
       .put(`/api/request/${request.id}`,request)
       .then(()=> $state.go('profile', $stateParams));
@@ -92,7 +92,7 @@ function ProfileCtrl(User, $stateParams, $http, $state, $auth, Request, Item){
     $auth.logout();
     vm.user
       .$remove()
-      .then(() => $state.go('itemsIndex'));
+      .then(() => $state.go('recipesIndex'));
   }
 }
 

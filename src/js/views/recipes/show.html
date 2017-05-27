@@ -1,25 +1,39 @@
-<div class="">
-  <h2>{{ recipe.name }}</h2>
-  <h3>{{ recipe.description }}</h3>
+<div class="recipeBox">
+  <h2>{{ recipesShow.recipe.name }}</h2>
 
-  <h3>Ingredients:</h3>
+  <div class="topBar">
+      <ul>
+        <li><i class="fa fa-calendar" aria-hidden="true"></i> {{ recipesShow.recipe.createdAt }}</li>
+        <li><i class="fa fa-user" aria-hidden="true"></i> {{ recipesShow.recipe.servings }}</li>
+        <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ recipesShow.recipe.time }}</li>
+        <li><i class="fa fa-tachometer" aria-hidden="true"></i> {{ recipesShow.recipe.difficulty }}</li>
+      </ul>
+  </div>
 
-  <ul>
-    <li ng-repeat="ingredient in recipe.ingredients">
-      <span >{{ ingredient }} </span>
-    </li>
-  </ul>
+  <p>{{ recipesShow.recipe.description }}</p>
+  <h3>{{ recipesShow.recipe.createdBy.username }}</h3>
 
-  <h3>Steps:</h3>
+  <img src="recipesShow.recipe.image" alt="recipesShow.recipe.name">
 
-  <ol>
-    <li ng-repeat="step in recipe.steps">
-      <span >{{ step }} </span>
-    </li>
-  </ol>
 
-  <h2>{{ recipe.time }}</h2>
-  <h2>{{ recipe.difficulty }}</h2>
-  <h2>{{ recipe.createdBy.username }}</h2>
-  <h2>{{ recipe.createdAt }}</h2>
+<div class="method">
+  <div class="ingredients">
+    <h3>Ingredients:</h3>
+      <ul>
+        <li ng-repeat="ingredient in recipesShow.recipe.ingredients">
+          <span >{{ ingredient }} </span>
+        </li>
+      </ul>
+  </div>
+
+  <div class="steps">
+    <h3>Steps:</h3>
+
+    <ol>
+      <li ng-repeat="step in recipesShow.recipe.steps">
+        <span >{{ step }} </span>
+      </li>
+    </ol>
+  </div>
+</div>
 </div>

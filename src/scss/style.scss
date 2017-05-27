@@ -1,1 +1,90 @@
 @import "templates";
+@import "header";
+
+////////////////////   INDEX   ///////////////
+
+// div {
+//   display: inline-block;
+// }
+
+.bodyBox {
+  background-color: lightgrey;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  h1 {
+    font-size: 40px;
+  }
+  .recipeBox {
+    columns: 3;
+    .recipe {
+      width: 300px;
+      background-color: lightblue;
+      padding: 5px;
+      text-align: left;
+      img {
+        width: 100%;
+      }
+      h4 {
+        font-style: italic;
+      }
+    }
+  }
+}
+////////////   SHOW   ///////////////
+
+.recipeBox {
+  padding-top: 100px;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  h2 {
+    font-size: 40px;
+    line-height: 200px;
+
+  }
+  .topBar {
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+    height: 50px;
+    text-align: center;
+    margin: 50px auto 50px auto;
+      ul {
+        list-style-type: none;
+        text-align: center;
+        li {
+          text-align: center;
+          margin: 0 auto;
+          display: inline-block;
+          float: left;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      }
+
+  }
+  .method {
+    .ingredients {
+      display: inline-block;
+      text-align: left;
+      background-color: yellow;
+      width: 30%;
+      float: left;
+      ul {
+        text-align: left;
+
+      }
+    }
+    .steps {
+      display: inline-block;
+      float: left;
+      text-align: left;
+      width:70%;
+      background-color: lightblue;
+      ol {
+        text-align: left;
+
+      }
+    }
+  }
+}

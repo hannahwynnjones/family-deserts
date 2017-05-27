@@ -24,7 +24,7 @@ function AuthCtrl($auth, $state) {
     if(vm.loginForm.$valid){
       $auth.login(vm.credentials)
       .then(() => {
-        if($auth.getPayload()) return $state.go('itemsIndex');
+        if($auth.getPayload()) return $state.go('recipesIndex');
         $state.go('login');
       });
     }
@@ -32,7 +32,7 @@ function AuthCtrl($auth, $state) {
 
   function authenticate(provider) {
     $auth.authenticate(provider)
-      .then(() => $state.go('itemsIndex'));
+      .then(() => $state.go('recipesIndex'));
   }
 
   vm.authenticate = authenticate;

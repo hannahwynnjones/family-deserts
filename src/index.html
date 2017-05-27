@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/jpeg" href="/images/favicon.jpeg" sizes="32x32" />
-
+    <script src="https://use.fontawesome.com/f3566f1806.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Raleway" rel="stylesheet">
     <title>Family-deserts</title>
     <!-- inject:js -->
     <!-- endinject -->
@@ -13,16 +14,24 @@
     <!-- endinject -->
   </head>
   <body ng-controller="MainCtrl as main">
-
-    <nav>
-      <ul>
-        <li><a ui-sref="home">Home</a></li>
-        <li ><a ui-sref="recipesIndex">Recipes</a></li>
-        <li ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></li>
-        <li ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></li>
-        <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
-      </ul>
-    </nav>
+    <header>
+      <div class="title">
+        <h1>FOOD BLOG</h1>
+      </div>
+      <div class="line"></div>
+      <nav>
+        <div class="topnav">
+          <span><a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a></span>
+          <span><a href="#blank"> </a></span>
+          <span><a ui-sref="home">Home</a></span>
+          <span ><a ui-sref="recipesIndex">Recipes</a></span>
+          <span ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></span>
+          <span ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></span>
+          <span ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></span>
+        </div>
+      </nav>
+      <div class="line"></div>
+    </header>
     <div class="message" ng-if="main.message">{{ main.message }}</div>
     <main ui-view></main>
 

@@ -1,0 +1,55 @@
+header {
+  // position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  height: 60px;
+  background-color: rgba(20, 20, 20, 0.3);
+
+  .title {
+    display: block;
+    height: 150px;
+    background-color: lightpink;
+    h1 {
+      line-height: 150px;
+      text-align: center;
+    }
+  }
+  // transition: background-color 0.2s ease;
+  nav {
+    .topnav {
+      overflow: hidden;
+      height: 70px;
+      width: 800px;
+      text-align: center;
+      margin: 0 auto;
+      span {
+        text-align: center;
+
+        a {
+          display: inline-block;
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            text-align: center;
+
+        }
+        a:hover {
+          color: black;
+            text-decoration: underline;
+        }
+
+    }
+    }
+  }
+}
+
+//hidding the link
+.topnav .icon {
+    display: none;
+}

@@ -7,21 +7,21 @@ const secureRoute = require('../lib/secureRoute');
 const imageUpload = require('../lib/imageUpload');
 
 
-router.get('/', (req, res) => res.render('statics/index'));
+// router.get('/', (req, res) => res.render('statics/index'));
 
 router.route('/users')
-  .get(userController.index); //landing page
+  .get(userController.index);
 
 router.route('/users/:id')
   .get(userController.show)
   .put(imageUpload, userController.update)
   .delete(secureRoute,userController.delete);
 
-router.route('/recipes')
+router.route('/recipe')
   .get(recipeController.index)
   .post(secureRoute, imageUpload, recipeController.create);
 
-router.route('/recipes/:id')
+router.route('/recipe/:id')
   .get(recipeController.show)
   .put(imageUpload, recipeController.update)
   .delete(secureRoute,recipeController.delete);

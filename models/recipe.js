@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 const s3 = require('../lib/s3');
 
-const itemSchema = new mongoose.Schema({
+const recipeSchema = new mongoose.Schema({
   name: {type: String, required: true},
   description: {type: String},
+  servings: {type: String},
   ingredients: [{ type: String}],
   steps: [{type: String}],
   time: {type: String, required: true},
@@ -17,26 +18,26 @@ const itemSchema = new mongoose.Schema({
 //   name: {type: String, required: true}
 // });
 
-itemSchema.methods.belongsTo = function itemBelongsTo(user) {
+recipeSchema.methods.belongsTo = function recipeBelongsTo(user) {
   if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
   return user.id === this.createdBy.toString();
 };
 
-itemSchema
+recipeSchema
   .path('image')
   .set(function getPreviousImage(image){
     this._image = this.image;
     return image;
   });
 
-itemSchema
+recipeSchema
     .virtual('imageSRC')
     .get(function getImageSRC() {
       if(!this.image) return null;
       return `https://s3-eu-west-1.amazonaws.com/${process.env.AWS_BUCKET_NAME}/${this.image}`;
     });
 
-itemSchema.pre('save', function checkPreviousImage(next) {
+recipeSchema.pre('save', function checkPreviousImage(next) {
   if(this.isModified('image') && this._image) {
     return s3.deleteObject({ Key: this._image }, next);
   }
@@ -44,9 +45,9 @@ itemSchema.pre('save', function checkPreviousImage(next) {
 });
 
 
-itemSchema.pre('remove', function deleteImage(next){
+recipeSchema.pre('remove', function deleteImage(next){
   if (this.image) return s3.deleteObject({Key: this.image}, next);
   next();
 });
 
-module.exports = mongoose.model('Item', itemSchema);
+module.exports = mongoose.model('Recipe', recipeSchema);

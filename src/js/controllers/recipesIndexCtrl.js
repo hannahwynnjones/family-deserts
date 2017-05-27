@@ -6,7 +6,7 @@ recipesIndexCtrl.$inject = ['Recipe','User', 'filterFilter', 'orderByFilter', '$
 function recipesIndexCtrl(Recipe, User, filterFilter, orderByFilter, $scope, $rootScope) {
   const vm = this;
   // vm.user = User.query();
-  vm.all = Recipe.get();
+  vm.all = Recipe.query();
 
 
   //

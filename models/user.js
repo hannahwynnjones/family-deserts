@@ -2,13 +2,19 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const s3 = require('../lib/s3');
 
+const ingredientSchema = new mongoose.Schema({
+  name: {type: mongoose.Schema.ObjectId, ref: 'Recipe', required: true},
+  belongsTo: {type: mongoose.Schema.ObjectId, ref: 'Recipe', required: true}
+});
+
 const userSchema = new mongoose.Schema({
   username: {type: String, required: true},
   password: {type: String},
   email: {type: String},
   image: {type: String},
   profileImage: {type: String},
-  facebookId: { type: String }
+  facebookId: { type: String },
+  ingredients: [{ingredientSchema}]
 });
 
 userSchema

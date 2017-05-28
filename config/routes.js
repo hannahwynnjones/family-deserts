@@ -17,6 +17,12 @@ router.route('/users/:id')
   .put(imageUpload, userController.update)
   .delete(secureRoute,userController.delete);
 
+router.route('/user/:id/recipes')
+.post(secureRoute, userController.bakeIt);
+
+// router.route('/user/:id/recipes/:recipeId')
+//   .delete(secureRoute,userController.deleteComment);
+
 router.route('/recipe')
   .get(recipeController.index)
   .post(secureRoute, imageUpload, recipeController.create);

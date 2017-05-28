@@ -7,7 +7,6 @@ function MainCtrl($rootScope, $state, $auth) {
   const vm = this;
 
   vm.isAuthenticated = $auth.isAuthenticated;
-
   $rootScope.$on('error', (e, err) => {
     vm.stateHasChanged = false;
     vm.message = err.data.message;

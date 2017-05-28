@@ -1,39 +1,45 @@
 <div class="recipeBox">
   <h2>{{ recipesShow.recipe.name }}</h2>
 
-  <div class="topBar">
-      <ul>
-        <li><i class="fa fa-calendar" aria-hidden="true"></i> {{ recipesShow.recipe.createdAt }}</li>
-        <li><i class="fa fa-user" aria-hidden="true"></i> {{ recipesShow.recipe.servings }}</li>
-        <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ recipesShow.recipe.time }}</li>
-        <li><i class="fa fa-tachometer" aria-hidden="true"></i> {{ recipesShow.recipe.difficulty }}</li>
-      </ul>
-  </div>
+  <button type="button" name="button">Bake it!</button>
 
-  <p>{{ recipesShow.recipe.description }}</p>
-  <h3>{{ recipesShow.recipe.createdBy.username }}</h3>
-
-  <img src="recipesShow.recipe.image" alt="recipesShow.recipe.name">
+  <button ng-click="recipesShow.toggleBaking()" ng-if="!recipesShow.isBaking() && main.isAuthenticated()">Bake it</button>
+  <button ng-click="recipesShow.toggleBaking()" ng-if="recipesShow.isBaking() && main.isAuthenticated()">Don't bake it</button>
 
 
-<div class="method">
-  <div class="ingredients">
-    <h3>Ingredients:</h3>
-      <ul>
-        <li ng-repeat="ingredient in recipesShow.recipe.ingredients">
-          <span >{{ ingredient }} </span>
+    <div class="topBar">
+        <ul>
+          <li><i class="fa fa-calendar" aria-hidden="true"></i> {{ recipesShow.recipe.createdAt }}</li>
+          <li><i class="fa fa-user" aria-hidden="true"></i> {{ recipesShow.recipe.servings }}</li>
+          <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{ recipesShow.recipe.time }}</li>
+          <li><i class="fa fa-tachometer" aria-hidden="true"></i> {{ recipesShow.recipe.difficulty }}</li>
+        </ul>
+    </div>
+
+    <p>{{ recipesShow.recipe.description }}</p>
+    <h3>{{ recipesShow.recipe.createdBy.username }}</h3>
+
+    <img src="{{recipesShow.recipe.image}}" alt="{{recipesShow.recipe.name}}">
+
+
+  <div class="method">
+    <div class="ingredients">
+      <h3>Ingredients:</h3>
+        <ul>
+          <li ng-repeat="ingredient in recipesShow.recipe.ingredients">
+            <span >{{ ingredient }} </span>
+          </li>
+        </ul>
+    </div>
+
+    <div class="steps">
+      <h3>Steps:</h3>
+
+      <ol>
+        <li ng-repeat="step in recipesShow.recipe.steps">
+          <span >{{ step }} </span>
         </li>
-      </ul>
+      </ol>
+    </div>
   </div>
-
-  <div class="steps">
-    <h3>Steps:</h3>
-
-    <ol>
-      <li ng-repeat="step in recipesShow.recipe.steps">
-        <span >{{ step }} </span>
-      </li>
-    </ol>
-  </div>
-</div>
 </div>

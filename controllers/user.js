@@ -1,5 +1,22 @@
 const User = require('../models/user');
+const Recipe = require('../models/recipe');
 const Promise = require('bluebird');
+
+function addIngredientsToUser(req, res) {
+
+  req.body.createdBy = req.user;
+
+  Recipe
+  .findById(req.params.id)
+  .exec()
+  .then((recipe)=>{
+    if(!recipe) return res.notFound();
+    const baking = User.recipes.create(req.body);
+    User.recipes.push(baking); // create an embedded record
+    return User.save()
+    .then(()=> res.json(recipe));
+  });
+}
 
 function profileRoute(req, res, next){
   return Promise.props({
@@ -59,5 +76,6 @@ module.exports = {
   show: showRoute,
   update: updateRoute,
   delete: deleteRoute,
-  profile: profileRoute
+  profile: profileRoute,
+  bakeIt: addIngredientsToUser
 };

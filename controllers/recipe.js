@@ -1,4 +1,5 @@
 const Recipe = require('../models/recipe');
+// const User = require('../models/user');
 
 function indexRoute(req, res, next) {
   Recipe
@@ -58,10 +59,25 @@ function deleteRoute(req, res, next) {
     .catch(next);
 }
 
+// function addRecipe(req, res, next) {
+//   Recipe
+//   .findById(req.params.id)
+//   .exec()
+//   .then((recipe)=>{
+//     if(!recipe) return res.notFound();
+//     baking.recipes.push(recipe); // create an embedded record
+//     return recipe.save()
+//     .then(()=> res.json(recipe));
+//   })
+//   .then((recipe) => res.redirect('home'))
+// .catch(next);
+// }
+
 module.exports = {
   index: indexRoute,
   create: createRoute,
   show: showRoute,
   update: updateRoute,
   delete: deleteRoute
+  // addRecipe
 };

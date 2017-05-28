@@ -6,6 +6,7 @@ AuthCtrl.$inject = ['$auth', '$state'];
 function AuthCtrl($auth, $state) {
   const vm = this;
   vm.user = {};
+  vm.credentials = {};
 
   function register() {
     $auth.signup(vm.user)
@@ -21,13 +22,11 @@ function AuthCtrl($auth, $state) {
   vm.register = register;
 
   function submit() {
-    if(vm.loginForm.$valid){
-      $auth.login(vm.credentials)
-      .then(() => {
-        if($auth.getPayload()) return $state.go('recipesIndex');
-        $state.go('login');
-      });
-    }
+    $auth.login(vm.credentials)
+    .then(() => {
+      if($auth.getPayload()) return $state.go('recipesIndex');
+      $state.go('login');
+    });
   }
 
   function authenticate(provider) {

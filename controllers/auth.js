@@ -5,9 +5,12 @@ const { secret } = require('../config/environment');
 function register(req, res, next) {
   if(req.file) req.body.image = req.file.filename;
   User
+
     .create(req.body)
     .then(() => res.json({ message: 'Registration successful'}))
-    .catch(next);
+    .catch(next)
+    .then(console.log('it worked')
+);
 }
 
 function login(req, res, next) {

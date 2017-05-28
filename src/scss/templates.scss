@@ -5,6 +5,11 @@
 // font-family: 'Lato', sans-serif;
 // font-family: 'Montserrat', sans-serif;
 // font-family: 'Raleway', sans-serif;
+html {
+  position:relative;
+  min-height: 100%;
+}
+
 img {
   width: 200px;
   height: 100%;
@@ -12,6 +17,7 @@ img {
 
 body {
   font-family: Lato, sans-serif;
+  height: 100%;
 }
 
 main {
@@ -19,6 +25,9 @@ main {
   text-align: center;
   display: block;
   padding-top: 150px;
+  z-index: 0;
+  height: 100vh;
+  background-image: url("http://demo.lyrathemes.com/kale-pro/wp-content/uploads/sites/4/2016/06/bg.png")
 }
 
 h1 {
@@ -27,7 +36,7 @@ h1 {
 
 .line {
   border-top: solid black;
-  width: 800px;
+  width: 100%;
   text-align: center;
   margin: 0 auto;
   border-width: thin;
@@ -40,4 +49,8 @@ ul {
 a {
   color: black;
   text-decoration: none;
+}
+
+div {
+  background-color: white;
 }

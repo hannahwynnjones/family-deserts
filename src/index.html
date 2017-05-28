@@ -21,8 +21,8 @@
       <div class="line"></div>
       <nav>
         <div class="topnav">
-          <span><a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a></span>
-          <span><a href="#blank"> </a></span>
+          <!-- <span><a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a></span>
+          <span><a href="#blank"> </a></span> -->
           <span><a ui-sref="home">Home</a></span>
           <span ><a ui-sref="recipesIndex">Recipes</a></span>
           <span ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></span>
@@ -32,8 +32,16 @@
       </nav>
       <div class="line"></div>
     </header>
-    <div class="message" ng-if="main.message">{{ main.message }}</div>
+    <!-- <div class="message" ng-if="main.message">{{ main.message }}</div> -->
     <main ui-view></main>
+    <!-- <footer>
+      <div class="contact-icons">
+        <a href="https://www.linkedin.com/in/hannahwynnjones/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+        <a href="https://github.com/hannahwynnjones" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+        <a href="https://twitter.com/HannahWynnJones" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="mailto:hello@hannahwynnjones.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+      </div>
 
+    </footer> -->
   </body>
 </html>
